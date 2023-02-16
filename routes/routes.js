@@ -37,6 +37,22 @@ module.exports = router;
 //     }
 // })
 
+router.post('/addPin', async (req, res) => {
+    console.log(req)
+    const data = new Model({
+        lat: req.body.lat,
+        lon: req.body.lon,
+        desc: req.body.desc
+    })
+    try {
+        const dataToSave = await data.save();
+        res.status(200).json(dataToSave)
+    }
+    catch (error) {
+        res.status(400).json({message: error.message})
+    }
+})
+
 // //Get all Method
 router.get('/getAll', (req, res) => {
     res.send('Get All API')

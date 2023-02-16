@@ -12,10 +12,16 @@ const database = mongoose.connection
 
 const routes = require('./routes/routes')
 const app = express()
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:4000');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+  });
 app.use(express.json())
-app.use(bodyParser.json())
 app.use('/api', routes)
 
+  
 database.on('error', (error) => {
     console.log(error)
 })
