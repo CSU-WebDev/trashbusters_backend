@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router()
-const Model = require('../models/model')
+// const Model = require('../models/model')
 
 module.exports = router;
 
@@ -37,21 +37,21 @@ module.exports = router;
 //     }
 // })
 
-router.post('/addPin', async (req, res) => {
-    console.log(req)
-    const data = new Model({
-        lat: req.body.lat,
-        lon: req.body.lon,
-        desc: req.body.desc
-    })
-    try {
-        const dataToSave = await data.save();
-        res.status(200).json(dataToSave)
-    }
-    catch (error) {
-        res.status(400).json({message: error.message})
-    }
-})
+// router.post('/addPin', async (req, res) => {
+//     console.log(req)
+//     const data = new Model({
+//         lat: req.body.lat,
+//         lon: req.body.lon,
+//         desc: req.body.desc
+//     })
+//     try {
+//         const dataToSave = await data.save();
+//         res.status(200).json(dataToSave)
+//     }
+//     catch (error) {
+//         res.status(400).json({message: error.message})
+//     }
+// })
 
 // //Get all Method
 router.get('/getAll', (req, res) => {
@@ -60,9 +60,9 @@ router.get('/getAll', (req, res) => {
 })
 
 //Get by ID Method
-router.get('/getOne/:id', (req, res) => {
-    res.send(req.params.id)
-})
+// router.get('/getOne/:id', (req, res) => {
+//     res.send(req.params.id)
+// })
 
 // //Update by ID Method
 // router.patch('/update/:id', (req, res) => {

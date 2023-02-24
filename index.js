@@ -4,8 +4,8 @@ const bodyParser = require('body-parser')
 const express = require('express')
 // const router = express.Router()
 // module.exports = router
-const mongoose = require('mongoose')
-const mongoString = process.env.DATABASE_URL
+// const mongoose = require('mongoose')
+// const mongoString = process.env.DATABASE_URL
 
 // mongoose.connect(mongoString)
 // const database = mongoose.connection
