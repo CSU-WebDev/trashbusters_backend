@@ -55,6 +55,7 @@ router.post('/addPin', async (req, res) => {
 
 // //Get all Method
 router.get('/getAll', (req, res) => {
+    console.log('apple')
     res.send('Get All API')
 })
 
