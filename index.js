@@ -25,8 +25,9 @@ const options = {
   "preflightContinue": false,
   "optionsSuccessStatus": 200
 }
-app.use(cors(options))
+
 app.use(express.json())
+app.use(cors(options))
 app.use('/api', routes)
 
   
