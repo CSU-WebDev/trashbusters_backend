@@ -7,17 +7,20 @@ const mongoString = process.env.DATABASE_URL
 mongoose.connect(mongoString)
 const database = mongoose.connection
 
+
 const routes = require('./routes/routes')
 const app = express()
+const cors = require('cors')
 
-app.use(function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:4000');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-  });
+const options = {
+    'origin': '*',
+    'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    'preflightContinue': true,
+    'optionsSuccessStatus': 200
+}
 
 app.use(express.json())
+app.use(cors(options))
 app.use('/api', routes)
 
 database.on('error', (error) => {
