@@ -4,7 +4,12 @@ const express = require('express')
 const mongoose = require('mongoose')
 const mongoString = process.env.DATABASE_URL
 
-mongoose.connect(mongoString)
+try {
+    await mongoose.connect(mongoString)
+    console.log('Database connected')
+} catch (error) {
+    console.log(error)
+}
 const database = mongoose.connection
 
 
