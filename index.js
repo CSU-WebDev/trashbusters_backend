@@ -4,15 +4,6 @@ const express = require('express')
 const mongoose = require('mongoose')
 const mongoString = process.env.DATABASE_URL
 
-// try {
-//     mongoose.connect(mongoString, { useNewUrlParser: true, useUnifiedTopology: true })
-//     console.log('Database connected')
-// } catch (error) {
-//     console.log(error)
-// }
-
-
-
 const routes = require('./routes/routes')
 const app = express()
 const cors = require('cors')

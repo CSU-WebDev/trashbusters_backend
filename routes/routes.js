@@ -6,7 +6,6 @@ const Model = require('../models/model')
 module.exports = router;
 
 router.post('/addPin', async (req, res) => {
-    console.log(req)
     const data = new Model({
         lat: req.body.lat,
         lng: req.body.lng,
@@ -21,7 +20,6 @@ router.post('/addPin', async (req, res) => {
     }
 })
 
-// //Get all Method
 router.get('/getPins', async (req, res) => {
     try {
       const pins = await Model.find({});
@@ -31,12 +29,6 @@ router.get('/getPins', async (req, res) => {
     }
   });
 
-// //Update by ID Method
-// router.patch('/update/:id', (req, res) => {
-//     res.send('Update by ID API')
-// })
-
-//Delete by ID Method
 router.delete('/deletePin/:_id', async (req, res) => {
   try {
     const deletedPin = await Model.findByIdAndDelete(req.params._id);
